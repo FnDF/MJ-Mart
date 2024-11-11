@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "723638403562",
+    "project_id": "mj-mart-5c5b5",
+    "storage_bucket": "mj-mart-5c5b5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723638403562:android:28e20488774f1440e67293",
+        "android_client_info": {
+          "package_name": "edu.mj.mart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARi8tvLN14mjIZRrLlKvxhCdL5uvfKAYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
