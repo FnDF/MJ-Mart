@@ -1,8 +1,16 @@
 package edu.mj.mjmart.base;
 
-public interface BasePresenter<V extends BaseView> {
+public abstract class BasePresenter<V extends BaseView> {
 
-    void onAttach(V mvpView);
+    protected String TAG = this.getClass().getName();
 
-    void onDetach();
+    protected V view;
+
+    protected BasePresenter(V view) {
+        this.view = view;
+    }
+
+    public void onDetach() {
+        view = null;
+    }
 }
