@@ -1,4 +1,4 @@
-package edu.mj.mart.activities;
+package edu.mj.mart.activities.main;
 
 import android.view.LayoutInflater;
 

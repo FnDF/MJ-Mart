@@ -1,4 +1,4 @@
-package edu.mj.mart.activities;
+package edu.mj.mart.activities.fragments.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,11 @@ import androidx.annotation.NonNull;
 import com.google.firebase.auth.FirebaseAuth;
 
 import edu.mj.mart.R;
+import edu.mj.mart.activities.main.MainActivity;
+import edu.mj.mart.activities.fragments.auth.forget.ForgetPassFragment;
 import edu.mj.mart.activities.fragments.auth.login.LoginFragment;
 import edu.mj.mart.activities.fragments.auth.register.RegisterFragment;
+import edu.mj.mart.activities.fragments.auth.reset.ResetPasswordFragment;
 import edu.mj.mart.core.BaseActivity;
 import edu.mj.mart.databinding.ActivityAuthBinding;
 
@@ -28,11 +31,6 @@ public class AuthActivity extends BaseActivity<ActivityAuthBinding> {
         super.onCreate(savedInstanceState);
         binding.layoutLoading.setOnClickListener(v -> {
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         // demo
@@ -64,8 +62,30 @@ public class AuthActivity extends BaseActivity<ActivityAuthBinding> {
 
     public void onNavigationForgetPass() {
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentContainer, new RegisterFragment())
-                .addToBackStack("register")
+                .add(R.id.fragmentContainer, new ForgetPassFragment())
+                .addToBackStack("forget")
+                .commit();
+    }
+
+    public void onNavigationOTP() {
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragmentContainer, new XacMinhOTPFragment())
+                .addToBackStack("otp")
+                .commit();
+    }
+
+    public void onNavigationResetPW() {
+        getSupportFragmentManager().popBackStack();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragmentContainer, new ResetPasswordFragment())
+                .addToBackStack("resetPW")
+                .commit();
+    }
+
+    public void onNavigationLogin() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, new LoginFragment())
                 .commit();
     }
 }

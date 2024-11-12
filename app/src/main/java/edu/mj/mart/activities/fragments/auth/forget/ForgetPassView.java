@@ -6,5 +6,7 @@ public interface ForgetPassView extends BaseView {
 
     void sendOTPSuccessfully();
 
-    void sendOTPFailed();
+    void sendOTPFailed(String msg);
+
+    void onEmailIsNotExists(String email);
 }

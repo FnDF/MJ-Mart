@@ -5,10 +5,12 @@
     <string name="start_launch_app">Bắt đầu</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Mật khẩu</string>
+    <string name="hint_confirm_password">Nhập lại mật khẩu</string>
     <string name="hint_forgot_pass">Quên mật khẩu</string>
     <string name="email_empty">Email không được bỏ trống</string>
     <string name="email_wrong">Email không hợp lệ</string>
-    <string name="password_empty">Mật khẩu không được bỏ trống</string>
+    <string name="password_empty">Mật khẩu tối thiểu 8 ký tự</string>
+    <string name="password_wrong">Mật khẩu nhập lại không trùng nhau</string>
     <string name="password_min">Mật khẩu tối thiểu 6 ký tự</string>
 
     <string name="login">Đăng nhập</string>

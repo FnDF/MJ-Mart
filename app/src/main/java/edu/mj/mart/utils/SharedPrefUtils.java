@@ -8,6 +8,7 @@ public class SharedPrefUtils {
     // region -> Key SharedPref
 
     public static final String KEY_IS_FIRST_TIME = "KEY_IS_FIRST_TIME";
+    public static final String KEY_IS_REGISTER_ADMIN = "KEY_IS_REGISTER_ADMIN";
 
     // endregion
 
@@ -27,6 +28,17 @@ public class SharedPrefUtils {
      */
     static public boolean getBooleanData(Context context, String key) {
         return context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE).getBoolean(key, false);
+    }
+
+    /**
+     * Gets boolean data.
+     *
+     * @param context the context
+     * @param key     the key
+     * @return the boolean data
+     */
+    static public long getLongData(Context context, String key) {
+        return context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE).getLong(key, 0L);
     }
 
     /**
@@ -94,10 +106,28 @@ public class SharedPrefUtils {
      * @param key     the key
      * @param val     the val
      */
+    static public void saveData(Context context, String key, long val) {
+        context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE).edit().putLong(key, val).apply();
+    }
+
+    /**
+     * Save data.
+     *
+     * @param context the context
+     * @param key     the key
+     * @param val     the val
+     */
     static public void saveData(Context context, String key, boolean val) {
         context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
                 .edit()
                 .putBoolean(key, val)
+                .apply();
+    }
+
+    static public void removeData(Context context, String key) {
+        context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+                .edit()
+                .remove(key)
                 .apply();
     }
 

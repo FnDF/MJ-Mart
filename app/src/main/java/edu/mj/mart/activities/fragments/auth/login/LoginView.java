@@ -6,5 +6,5 @@ public interface LoginView extends BaseView {
 
     void loginSuccessfully();
 
-    void loginFailed();
+    void loginFailed(String msg);
 }

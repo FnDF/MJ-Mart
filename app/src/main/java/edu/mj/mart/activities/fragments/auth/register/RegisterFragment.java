@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import edu.mj.mart.R;
-import edu.mj.mart.activities.AuthActivity;
+import edu.mj.mart.activities.fragments.auth.AuthActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentRegisterBinding;
 import edu.mj.mart.utils.AESEncryption;

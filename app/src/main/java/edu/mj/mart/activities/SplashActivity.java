@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 
 import androidx.annotation.NonNull;
 
+import edu.mj.mart.activities.fragments.auth.AuthActivity;
 import edu.mj.mart.activities.tutorial.TutorialActivity;
 import edu.mj.mart.core.BaseActivity;
 import edu.mj.mart.databinding.ActivitySplashBinding;

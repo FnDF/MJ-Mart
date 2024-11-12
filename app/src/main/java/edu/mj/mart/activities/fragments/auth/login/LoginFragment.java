@@ -1,18 +1,20 @@
 package edu.mj.mart.activities.fragments.auth.login;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import edu.mj.mart.R;
-import edu.mj.mart.activities.AuthActivity;
+import edu.mj.mart.activities.fragments.auth.AuthActivity;
+import edu.mj.mart.activities.main.MainActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentLoginBinding;
 import edu.mj.mart.utils.AESEncryption;
@@ -36,12 +38,12 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
                 isShowPassword = false;
                 binding.edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 binding.edtPassword.setSelection(binding.edtPassword.getText().toString().trim().length());
-                binding.ivShowPassword.setImageResource(R.drawable.baseline_remove_red_eye_24);
+                binding.ivShowPassword.setImageResource(R.drawable.ic_hide_pass);
             } else {
                 isShowPassword = true;
                 binding.edtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 binding.edtPassword.setSelection(binding.edtPassword.getText().toString().trim().length());
-                binding.ivShowPassword.setImageResource(R.drawable.ic_hide_pass);
+                binding.ivShowPassword.setImageResource(R.drawable.baseline_remove_red_eye_24);
             }
         });
 
@@ -67,13 +69,8 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
 
             binding.tvEmailError.setVisibility(View.GONE);
 
-            if (password.isEmpty()) {
+            if (password.length() < 8) {
                 binding.tvPassError.setText(getString(R.string.password_empty));
-                binding.tvPassError.setVisibility(View.VISIBLE);
-                return;
-            }
-            if (password.length() < 6) {
-                binding.tvPassError.setText(getString(R.string.password_min));
                 binding.tvPassError.setVisibility(View.VISIBLE);
                 return;
             }
@@ -95,12 +92,13 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
 
     @Override
     public void loginSuccessfully() {
-
+        startActivity(new Intent(requireActivity(), MainActivity.class));
+        requireActivity().finish();
     }
 
     @Override
-    public void loginFailed() {
-
+    public void loginFailed(String msg) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

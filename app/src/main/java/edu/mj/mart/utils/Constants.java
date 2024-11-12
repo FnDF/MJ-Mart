@@ -15,4 +15,8 @@ public class Constants {
         list.add(new Triple<>(R.drawable.ic_tutorial_3, "Thống kê & Báo cáo", "Tiết kiệm thời thời gian và nâng cao hiệu suất kinh doanh với ứng dụng quản lý cửa hàng của chúng tôi"));
         return list;
     }
+
+    public static final String DB_COLLECTION_USERS = "users";
+    public static final String DB_COLLECTION_KEY_EMAIL = "email";
+    public static final String DB_COLLECTION_KEY_PASSWORD = "password";
 }

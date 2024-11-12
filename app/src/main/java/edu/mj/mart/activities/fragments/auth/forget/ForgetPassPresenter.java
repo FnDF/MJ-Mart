@@ -1,20 +1,25 @@
 package edu.mj.mart.activities.fragments.auth.forget;
 
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
 import java.util.Properties;
 import java.util.Random;
 
-import edu.mj.mart.base.BasePresenter;
-
-import javax.mail.*;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import edu.mj.mart.base.BasePresenter;
+import edu.mj.mart.utils.Constants;
+import edu.mj.mart.utils.SharedPrefUtils;
 
 public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
 
@@ -25,6 +30,24 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
     public void sendOTP(String email) {
         mView.showLoading();
 
+    }
+
+    public void checkEmail(String email) {
+        if (mView != null) {
+            mView.showLoading();
+        }
+        db.collection(Constants.DB_COLLECTION_USERS)
+                .whereEqualTo(Constants.DB_COLLECTION_KEY_EMAIL, email)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (mView == null) return;
+                    if (task.getResult() == null || task.getResult().isEmpty() || !task.isSuccessful()) {
+                        mView.hideLoading();
+                        mView.onEmailIsNotExists(email);
+                    } else {
+                        new SendEmailTask().execute(email);
+                    }
+                });
     }
 
     // AsyncTask để gửi email OTP trên background thread
@@ -46,13 +69,9 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
         String otpCode = generateOTP();  // Tạo mã OTP ngẫu nhiên
         long otpTimestamp = System.currentTimeMillis();  // Lấy thời gian gửi OTP
 
-        // Lưu thông tin vào SharedPreferences tạm thời
-        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences("OTP_PREFS", fragmentActivity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("email", userEmail);
-        editor.putString("otp", otpCode);
-        editor.putLong("otp_timestamp", otpTimestamp);
-        editor.apply();  // Lưu thông tin
+        SharedPrefUtils.saveData(fragmentActivity, "email", userEmail);
+        SharedPrefUtils.saveData(fragmentActivity, "otp", otpCode);
+        SharedPrefUtils.saveData(fragmentActivity, "otp_timestamp", otpTimestamp);
 
         // Cấu hình các thuộc tính gửi email qua SMTP
         Properties properties = new Properties();
@@ -77,11 +96,20 @@ public class ForgetPassPresenter extends BasePresenter<ForgetPassView> {
 
             // Gửi email
             Transport.send(message);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            fragmentActivity.runOnUiThread(() -> Toast.makeText(fragmentActivity, "Gửi email thất bại !", Toast.LENGTH_SHORT).show());
-            Log.e("SendEmailTask", "Error sending email: " + e.getMessage());
 
+            fragmentActivity.runOnUiThread(() -> {
+                if (mView != null) {
+                    mView.sendOTPSuccessfully();
+                }
+            });
+
+        } catch (MessagingException e) {
+            Log.e("SendEmailTask", "Error sending email: " + e.getMessage());
+            fragmentActivity.runOnUiThread(() -> {
+                if (mView != null) {
+                    mView.sendOTPFailed(e.getMessage());
+                }
+            });
         }
     }
 
