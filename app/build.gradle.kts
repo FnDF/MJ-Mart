@@ -42,11 +42,14 @@ dependencies {
 	androidTestImplementation("androidx.test.ext:junit:1.2.1")
 	androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
-	implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
-	implementation("com.google.firebase:firebase-analytics")
-	implementation("com.google.firebase:firebase-auth")
-	implementation("com.google.firebase:firebase-firestore")
+	implementation(platform(libs.firebase.bom))
+	implementation(libs.firebase.analytics)
+	implementation(libs.firebase.auth)
+	implementation(libs.firebase.firestore)
 
-	implementation ("com.sun.mail:android-mail:1.6.0")
-	implementation ("com.sun.mail:android-activation:1.6.0")
+	implementation (libs.android.mail)
+	implementation (libs.android.activation)
+
+	implementation(libs.androidx.navigation.fragment)
+	implementation(libs.androidx.navigation.ui)
 }

@@ -17,4 +17,8 @@
     <string name="register">Đăng ký</string>
     <string name="confirm_pass">Xác nhận</string>
     <string name="forget_pass">Quên mật khẩu</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_bills">Hoá đơn</string>
+    <string name="title_products">Quản lý hàng hoá</string>
+    <string name="title_menu">Menu</string>
 </resources>
