@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MJ Mart</string>
+    <string name="description_splash">MJ Mart - giải pháp hoàn hảo cho cửa hàng của bạn</string>
+    <string name="title_splash">Welcome\nTo MJ Mart</string>
+    <string name="start_launch_app">Bắt đầu</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Mật khẩu</string>
+    <string name="hint_forgot_pass">Quên mật khẩu</string>
+    <string name="email_empty">Email không được bỏ trống</string>
+    <string name="email_wrong">Email không hợp lệ</string>
+    <string name="password_empty">Mật khẩu không được bỏ trống</string>
+    <string name="password_min">Mật khẩu tối thiểu 6 ký tự</string>
+
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="confirm_pass">Xác nhận</string>
+    <string name="forget_pass">Quên mật khẩu</string>
 </resources>

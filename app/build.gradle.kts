@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-	namespace = "edu.mj.mjmart"
+	namespace = "edu.mj.mart"
 	compileSdk = 34
 
 	defaultConfig {
-		applicationId = "edu.mj.mjmart"
+		applicationId = "edu.mj.mart"
 		minSdk = 24
 		targetSdk = 34
 		versionCode = 1
@@ -45,4 +45,7 @@ dependencies {
 	implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
 	implementation("com.google.firebase:firebase-analytics")
 	implementation("com.google.firebase:firebase-auth")
+
+	implementation ("com.sun.mail:android-mail:1.6.0")
+	implementation ("com.sun.mail:android-activation:1.6.0")
 }
