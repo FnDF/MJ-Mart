@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import edu.mj.mart.R;
-import edu.mj.mart.activities.fragments.auth.AuthActivity;
+import edu.mj.mart.activities.auth.AuthActivity;
 import edu.mj.mart.adapter.TutorialViewPagerAdapter;
 import edu.mj.mart.core.BaseActivity;
 import edu.mj.mart.databinding.ActivityTutorialBinding;

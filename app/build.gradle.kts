@@ -34,13 +34,17 @@ android {
 
 dependencies {
 
+	implementation(libs.androidx.appcompat)
+	implementation(libs.material)
+	implementation(libs.androidx.activity)
+	implementation(libs.androidx.constraintlayout)
 	implementation("androidx.appcompat:appcompat:1.7.0")
 	implementation("com.google.android.material:material:1.12.0")
 	implementation("androidx.activity:activity:1.9.3")
 	implementation("androidx.constraintlayout:constraintlayout:2.2.0")
-	testImplementation("junit:junit:4.13.2")
-	androidTestImplementation("androidx.test.ext:junit:1.2.1")
-	androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+	testImplementation(libs.junit)
+	androidTestImplementation(libs.androidx.junit)
+	androidTestImplementation(libs.androidx.espresso.core)
 
 	implementation(platform(libs.firebase.bom))
 	implementation(libs.firebase.analytics)
