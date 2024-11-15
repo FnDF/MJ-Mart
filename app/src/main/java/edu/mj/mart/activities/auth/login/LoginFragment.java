@@ -1,5 +1,7 @@
 package edu.mj.mart.activities.auth.login;
 
+import static edu.mj.mart.utils.Constants.KEY_SERIALIZABLE_ACCOUNT;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
@@ -17,8 +19,11 @@ import edu.mj.mart.activities.auth.AuthActivity;
 import edu.mj.mart.activities.main.MainActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentLoginBinding;
+import edu.mj.mart.model.Account;
 import edu.mj.mart.utils.AESEncryption;
+import edu.mj.mart.utils.Constants;
 import edu.mj.mart.utils.DeviceUtils;
+import edu.mj.mart.utils.SyntheticEnum;
 
 public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPresenter> implements LoginView {
     @NonNull
@@ -52,8 +57,12 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
         });
 
         binding.btnLogin.setOnClickListener(v -> {
-            String email = binding.edtEmail.getText().toString().trim();
-            String password = binding.edtPassword.getText().toString().trim();
+//            String email = binding.edtEmail.getText().toString().trim();
+//            String password = binding.edtPassword.getText().toString().trim();
+
+            // demo
+            String email = "anhpq.soft@gmail.com";
+            String password = "12345678";
 
             if (email.isEmpty()) {
                 binding.tvEmailError.setText(getString(R.string.email_empty));
@@ -91,9 +100,13 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
     }
 
     @Override
-    public void loginSuccessfully() {
-        startActivity(new Intent(requireActivity(), MainActivity.class));
-        requireActivity().finish();
+    public void loginSuccessfully(Account account) {
+        if (account != null) {
+            Constants.currentAccount = account;
+            Intent intent = new Intent(requireActivity(), MainActivity.class);
+            startActivity(intent);
+            requireActivity().finish();
+        }
     }
 
     @Override

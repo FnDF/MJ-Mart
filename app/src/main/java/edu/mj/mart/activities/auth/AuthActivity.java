@@ -32,17 +32,13 @@ public class AuthActivity extends BaseActivity<ActivityAuthBinding> {
         binding.layoutLoading.setOnClickListener(v -> {
         });
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        // demo
-        mAuth.signOut();
-
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(AuthActivity.this, MainActivity.class));
-            finish();
-        } else {
-            binding.fragmentContainer.setVisibility(View.VISIBLE);
-            getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, new LoginFragment()).commit();
-        }
+//        if (mAuth.getCurrentUser() != null) {
+//            startActivity(new Intent(AuthActivity.this, MainActivity.class));
+//            finish();
+//        } else {
+        binding.fragmentContainer.setVisibility(View.VISIBLE);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, new LoginFragment()).commit();
+//        }
     }
 
     public void showLoading() {

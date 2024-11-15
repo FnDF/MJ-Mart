@@ -28,6 +28,7 @@
         app:srcCompat="@drawable/icon_login" />
 
     <TextView
+        android:id="@+id/tv001"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -39,5 +40,195 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/icon" />
 
+    <ImageView
+        android:id="@+id/icLocale"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_vn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv001" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocale"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center_vertical"
+        android:text="+84"
+        android:textColor="#C4C4C4"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/icLocale"
+        app:layout_constraintStart_toEndOf="@id/icLocale"
+        app:layout_constraintTop_toTopOf="@id/icLocale" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@id/tvLocale"
+        app:layout_constraintEnd_toEndOf="@id/tvLocale"
+        app:layout_constraintStart_toStartOf="@id/icLocale" />
+
+    <EditText
+        android:id="@+id/edtPhone"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="Số điện thoai"
+        android:inputType="number|phone"
+        android:textColor="@color/black"
+        android:textColorHint="#C4C4C4"
+        app:layout_constraintBottom_toBottomOf="@id/icLocale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvLocale"
+        app:layout_constraintTop_toTopOf="@id/icLocale" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@id/edtPhone"
+        app:layout_constraintEnd_toEndOf="@id/edtPhone"
+        app:layout_constraintStart_toStartOf="@id/edtPhone" />
+
+    <EditText
+        android:id="@+id/edtFullName"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="Tên nhân viên"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textColorHint="#C4C4C4"
+        app:layout_constraintEnd_toEndOf="@id/edtPhone"
+        app:layout_constraintStart_toStartOf="@id/icLocale"
+        app:layout_constraintTop_toBottomOf="@id/edtPhone" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@id/edtFullName"
+        app:layout_constraintEnd_toEndOf="@id/edtFullName"
+        app:layout_constraintStart_toStartOf="@id/edtFullName" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="#C4C4C4"
+        app:layout_constraintEnd_toEndOf="@id/edtFullName"
+        app:layout_constraintStart_toStartOf="@id/icLocale"
+        app:layout_constraintTop_toBottomOf="@id/edtFullName" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@id/edtEmail"
+        app:layout_constraintEnd_toEndOf="@id/edtEmail"
+        app:layout_constraintStart_toStartOf="@id/edtEmail" />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/ic_pass_v2"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:paddingStart="0dp"
+        android:paddingEnd="30dp"
+        android:textColor="@color/black"
+        android:textColorHint="#C4C4C4"
+        app:layout_constraintEnd_toEndOf="@id/edtEmail"
+        app:layout_constraintStart_toStartOf="@id/icLocale"
+        app:layout_constraintTop_toBottomOf="@id/edtEmail" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivShowPassword"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/edtPassword"
+        app:layout_constraintEnd_toEndOf="@id/edtPassword"
+        app:layout_constraintTop_toTopOf="@id/edtPassword"
+        app:srcCompat="@drawable/ic_hide_pass" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@id/edtPassword"
+        app:layout_constraintEnd_toEndOf="@id/edtPassword"
+        app:layout_constraintStart_toStartOf="@id/edtPassword" />
+
+    <EditText
+        android:id="@+id/edtConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/ic_pass_v2"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="Xác nhận mật khẩu"
+        android:inputType="textPassword"
+        android:paddingStart="0dp"
+        android:paddingEnd="30dp"
+        android:textColor="@color/black"
+        android:textColorHint="#C4C4C4"
+        app:layout_constraintEnd_toEndOf="@id/edtPassword"
+        app:layout_constraintStart_toStartOf="@id/icLocale"
+        app:layout_constraintTop_toBottomOf="@id/edtPassword" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivShowConfirmPassword"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/edtConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@id/edtConfirmPassword"
+        app:layout_constraintTop_toTopOf="@id/edtConfirmPassword"
+        app:srcCompat="@drawable/ic_hide_pass" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintBottom_toBottomOf="@id/edtConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@id/edtConfirmPassword"
+        app:layout_constraintStart_toStartOf="@id/edtConfirmPassword" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_button_v2"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Thêm mật khẩu"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtConfirmPassword"
+        app:layout_constraintWidth_percent="0.9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

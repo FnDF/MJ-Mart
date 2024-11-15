@@ -1,10 +1,9 @@
 package edu.mj.mart.activities.main;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import static edu.mj.mart.utils.Constants.KEY_SERIALIZABLE_ACCOUNT;
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -17,14 +16,13 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import edu.mj.mart.R;
-import edu.mj.mart.core.BaseActivity;
-import edu.mj.mart.databinding.ActivityMainBinding;
+import edu.mj.mart.model.Account;
+import edu.mj.mart.utils.Constants;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -37,15 +35,4 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigationView = findViewById(R.id.bottomNavigationView);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-
-    //    @NonNull
-//    @Override
-//    protected ActivityMainBinding createViewBinding(LayoutInflater layoutInflater) {
-//        return ActivityMainBinding.inflate(layoutInflater);
-//    }
-//
-//    @Override
-//    public void setupView() {
-//
-//    }
 }

@@ -38,12 +38,14 @@
                 app:cardCornerRadius="100dp">
 
                 <ImageView
+                    android:id="@+id/ivAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/avatar_default" />
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/tvFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -53,6 +55,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tvRole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -148,6 +151,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
+                android:id="@+id/tvOptionManager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -158,6 +162,7 @@
                 android:textSize="18sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layoutReport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -196,6 +201,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layoutEmployees"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

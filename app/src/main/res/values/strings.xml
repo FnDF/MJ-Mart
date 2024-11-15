@@ -21,4 +21,14 @@
     <string name="title_bills">Hoá đơn</string>
     <string name="title_products">Quản lý hàng hoá</string>
     <string name="title_menu">Menu</string>
+
+    <string name="title_welcome">Chào %s</string>
+    <string name="customer">Nhân viên</string>
+    <string name="list_job">Công việc</string>
+    <string name="orders_of_the_day">Đơn hàng trong ngày</string>
+
+    <string name="title_manager">Quản lý</string>
+    <string name="phone_number">SĐT: %s</string>
+    <string name="title_staff">Nhân viên</string>
+    <string name="hint_search_employee">Tìm kiếm nhân viên</string>
 </resources>
