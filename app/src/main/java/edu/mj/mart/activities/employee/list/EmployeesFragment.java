@@ -17,9 +17,9 @@ import java.util.List;
 
 import edu.mj.mart.activities.employee.EmployeeManagerActivity;
 import edu.mj.mart.adapter.EmployeeAdapter;
-import edu.mj.mart.adapter.OnListenerItem;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentEmployeesBinding;
+import edu.mj.mart.model.Employee;
 import edu.mj.mart.model.Account;
 import edu.mj.mart.utils.Constants;
 
@@ -81,7 +81,7 @@ public class EmployeesFragment extends BaseFragment<FragmentEmployeesBinding, Em
     }
 
     @Override
-    public void onGetEmployeesSuccess(List<Account> employees) {
+    public void onGetEmployeesSuccess(List<Employee> employees) {
         adapter.setDataSource(employees);
     }
 

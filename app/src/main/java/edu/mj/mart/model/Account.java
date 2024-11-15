@@ -12,6 +12,8 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
+import edu.mj.mart.utils.SyntheticEnum;
+
 public class Account implements Serializable {
 
     private String id;
@@ -45,6 +47,26 @@ public class Account implements Serializable {
     }
 
     public Account() {
+    }
+
+    public Account(int role, String email, String password, String phone, String fullName, List<String> avatar) {
+        this.role = role;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.fullName = fullName;
+        this.active = SyntheticEnum.StatusEmployee.ACTIVE.value;
+        this.avatar = avatar;
+    }
+
+    public Account(String email, String password, String phone, String fullName, List<String> avatar) {
+        this.role = SyntheticEnum.Role.STAFF.value;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.fullName = fullName;
+        this.active = SyntheticEnum.StatusEmployee.ACTIVE.value;
+        this.avatar = avatar;
     }
 
     public String getId() {

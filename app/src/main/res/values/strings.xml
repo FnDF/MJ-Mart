@@ -31,4 +31,5 @@
     <string name="phone_number">SĐT: %s</string>
     <string name="title_staff">Nhân viên</string>
     <string name="hint_search_employee">Tìm kiếm nhân viên</string>
+    <string name="error">Có lỗi xảy ra!</string>
 </resources>

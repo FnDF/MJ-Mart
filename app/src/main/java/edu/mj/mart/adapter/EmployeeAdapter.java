@@ -15,20 +15,21 @@ import java.util.List;
 import edu.mj.mart.R;
 import edu.mj.mart.databinding.ItemEmployeeBinding;
 import edu.mj.mart.model.Account;
+import edu.mj.mart.model.Employee;
 import edu.mj.mart.utils.ImageUtil;
 
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder> {
 
-    private List<Account> accounts;
-    private final OnListenerItem<Account> onListenerItem;
+    private List<Employee> accounts;
+    private final OnListenerItem<Employee> onListenerItem;
 
-    public EmployeeAdapter(List<Account> accounts, OnListenerItem<Account> onListenerItem) {
+    public EmployeeAdapter(List<Employee> accounts, OnListenerItem<Employee> onListenerItem) {
         this.accounts = accounts;
         this.onListenerItem = onListenerItem;
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setDataSource(List<Account> accounts) {
+    public void setDataSource(List<Employee> accounts) {
         this.accounts = accounts;
         notifyDataSetChanged();
     }
@@ -56,16 +57,16 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
 
         private final ItemEmployeeBinding binding;
         private final Context context;
-        private final OnListenerItem<Account> onListenerItem;
+        private final OnListenerItem<Employee> onListenerItem;
 
-        public EmployeeViewHolder(ItemEmployeeBinding binding, OnListenerItem<Account> onListenerItem) {
+        public EmployeeViewHolder(ItemEmployeeBinding binding, OnListenerItem<Employee> onListenerItem) {
             super(binding.getRoot());
             this.binding = binding;
             this.onListenerItem = onListenerItem;
             context = binding.getRoot().getContext();
         }
 
-        public void bind(Account account) {
+        public void bind(Employee account) {
             if (account.getRole() == STAFF.value) {
                 binding.tvRole.setText(context.getString(R.string.title_staff));
             } else {
