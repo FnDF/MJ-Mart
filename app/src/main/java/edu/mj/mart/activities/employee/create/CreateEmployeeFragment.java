@@ -152,6 +152,7 @@ public class CreateEmployeeFragment extends BaseFragment<FragmentCreateEmployeeB
     @Override
     public void onCreateEmployeeSuccessfully() {
         Toast.makeText(requireContext(), "Thêm nhân viên thành công", Toast.LENGTH_SHORT).show();
+        ((EmployeeManagerActivity) requireActivity()).reloadData();
         requireActivity().getOnBackPressedDispatcher().onBackPressed();
     }
 

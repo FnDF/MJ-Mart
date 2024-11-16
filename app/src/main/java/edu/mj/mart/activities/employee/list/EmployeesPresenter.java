@@ -4,6 +4,7 @@ import static edu.mj.mart.utils.Constants.ACCOUNT_ACTIVE;
 import static edu.mj.mart.utils.Constants.ACCOUNT_AVATAR;
 import static edu.mj.mart.utils.Constants.ACCOUNT_EMAIL;
 import static edu.mj.mart.utils.Constants.ACCOUNT_FULL_NAME;
+import static edu.mj.mart.utils.Constants.ACCOUNT_PASSWORD;
 import static edu.mj.mart.utils.Constants.ACCOUNT_PHONE;
 import static edu.mj.mart.utils.Constants.ACCOUNT_ROLE;
 
@@ -56,6 +57,7 @@ public class EmployeesPresenter extends BasePresenter<EmployeesView> {
                             }
 
                             Employee account = new Employee(document.getId(), role, email, phone, fullName, active, avatar);
+                            account.setPassword(document.getString(ACCOUNT_PASSWORD));
                             accounts.add(account);
                         }
                     } else {

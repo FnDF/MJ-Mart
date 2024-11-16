@@ -27,6 +27,9 @@
             android:name=".activities.auth.AuthActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.resetpassword.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.splash.SplashActivity"
             android:exported="true">
             <intent-filter>

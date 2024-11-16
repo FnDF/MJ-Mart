@@ -55,7 +55,7 @@ public class EmployeesFragment extends BaseFragment<FragmentEmployeesBinding, Em
 
         adapter = new EmployeeAdapter(new ArrayList<>(), item -> {
             if (currentAccount != null && currentAccount.getRole() == MANAGER.value) {
-                // todo
+                ((EmployeeManagerActivity) requireActivity()).onNavigationEdit(item);
             }
         });
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -67,6 +67,10 @@ public class EmployeesFragment extends BaseFragment<FragmentEmployeesBinding, Em
             ((EmployeeManagerActivity) requireActivity()).onNavigationCreate();
         });
 
+        presenter.getEmployees();
+    }
+
+    public void reloadData() {
         presenter.getEmployees();
     }
 

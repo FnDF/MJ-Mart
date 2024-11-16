@@ -4,6 +4,7 @@ import static edu.mj.mart.utils.SyntheticEnum.Role.STAFF;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -73,7 +74,11 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
                 binding.tvRole.setText(context.getString(R.string.title_manager));
             }
             binding.tvFullName.setText(account.getFullName());
-            binding.tvPhone.setText(context.getString(R.string.phone_number, account.getPhone()));
+            String phone = account.getPhone();
+            if (TextUtils.isEmpty(phone)) {
+                phone = "Chưa cập nhật";
+            }
+            binding.tvPhone.setText(context.getString(R.string.phone_number, phone));
 
             if (account.getAvatar() == null || account.getAvatar().isEmpty()) {
                 binding.ivAvatar.setImageResource(R.drawable.icon_profile_default);

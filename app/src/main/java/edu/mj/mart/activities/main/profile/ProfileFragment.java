@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 
 import edu.mj.mart.R;
 import edu.mj.mart.activities.employee.EmployeeManagerActivity;
+import edu.mj.mart.activities.resetpassword.ResetPasswordActivity;
+import edu.mj.mart.activities.splash.SplashActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentProfileBinding;
 import edu.mj.mart.model.Account;
@@ -64,7 +66,16 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding, Profil
                 binding.layoutEmployees.setVisibility(View.GONE);
             }
         }
+        binding.layoutResetPassword.setOnClickListener(v -> {
+            startActivity(new Intent(requireActivity(), ResetPasswordActivity.class));
+        });
+        binding.cardLogOut.setOnClickListener(v -> {
+            Constants.currentAccount = null;
+            Intent intent = new Intent(requireActivity(), SplashActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
+            startActivity(intent);
+        });
         binding.layoutEmployees.setOnClickListener(v -> startActivity(new Intent(requireActivity(), EmployeeManagerActivity.class)));
     }
 

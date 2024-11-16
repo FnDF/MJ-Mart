@@ -12,7 +12,7 @@ public class SyntheticEnum {
     }
 
     public enum StatusEmployee {
-        ACTIVE(1), INACTIVE(0);
+        ACTIVE(1), DEACTIVATE(0);
 
         public final int value;
 

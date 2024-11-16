@@ -8,9 +8,11 @@ import androidx.annotation.NonNull;
 import edu.mj.mart.R;
 import edu.mj.mart.activities.auth.register.RegisterFragment;
 import edu.mj.mart.activities.employee.create.CreateEmployeeFragment;
+import edu.mj.mart.activities.employee.edit.EditEmployeeFragment;
 import edu.mj.mart.activities.employee.list.EmployeesFragment;
 import edu.mj.mart.core.BaseActivity;
 import edu.mj.mart.databinding.ActivityEmployeeManagerBinding;
+import edu.mj.mart.model.Employee;
 
 public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManagerBinding> {
 
@@ -42,9 +44,22 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
         binding.layoutLoading.setVisibility(View.GONE);
     }
 
+    public void reloadData() {
+        if (employeesFragment != null) {
+            employeesFragment.reloadData();
+        }
+    }
+
     public void onNavigationCreate() {
         getSupportFragmentManager().beginTransaction()
                 .add(binding.subContainer.getId(), new CreateEmployeeFragment())
+                .addToBackStack("create")
+                .commit();
+    }
+
+    public void onNavigationEdit(Employee employee) {
+        getSupportFragmentManager().beginTransaction()
+                .add(binding.subContainer.getId(), new EditEmployeeFragment(employee))
                 .addToBackStack("create")
                 .commit();
     }
