@@ -22,4 +22,8 @@ public class Employee extends Account {
 
     public Employee() {
     }
+
+    public Employee copy() {
+        return new Employee(getId(), getRole(), getEmail(), getPassword(), getPhone(), getFullName(), getActive(), getAvatar());
+    }
 }

@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,8 +61,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomePresente
             }
 
             if (currentAccount.getRole() == STAFF.value) {
-                binding.ivOption3.setImageResource(R.drawable.ic_customer);
-                binding.tvOption3.setText(getString(R.string.customer));
+//                binding.ivOption3.setImageResource(R.drawable.ic_customer);
+//                binding.tvOption3.setText(getString(R.string.customer));
 
                 binding.tvOverview1.setText(getString(R.string.list_job));
                 binding.tvValueOverview1.setText("22");
@@ -73,7 +74,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomePresente
         binding.layoutOption3.setOnClickListener(v -> {
             if (currentAccount == null) return;
             if (currentAccount.getRole() == STAFF.value) {
-                startActivity(new Intent(requireActivity(), EmployeeManagerActivity.class));
+                Toast.makeText(requireContext(), "Bạn không có đủ quyền hạn cần thiết", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(requireContext(), "Chức năng Thống kê đang được xây dựng", Toast.LENGTH_SHORT).show();
             }
         });
     }

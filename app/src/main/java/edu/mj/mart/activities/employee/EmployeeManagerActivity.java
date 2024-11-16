@@ -59,8 +59,8 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
 
     public void onNavigationEdit(Employee employee) {
         getSupportFragmentManager().beginTransaction()
-                .add(binding.subContainer.getId(), new EditEmployeeFragment(employee))
-                .addToBackStack("create")
+                .add(binding.subContainer.getId(), new EditEmployeeFragment(employee.copy()))
+                .addToBackStack("edit")
                 .commit();
     }
 }

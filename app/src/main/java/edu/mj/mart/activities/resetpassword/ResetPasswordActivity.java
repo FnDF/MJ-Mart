@@ -157,6 +157,9 @@ public class ResetPasswordActivity extends BaseActivity<ActivityResetPasswordBin
                         });
             }
         });
+        binding.ivBack.setOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
     }
 
     @Override
