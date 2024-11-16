@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import edu.mj.mart.R;
+import edu.mj.mart.activities.auth.AuthActivity;
 import edu.mj.mart.activities.employee.EmployeeManagerActivity;
+import edu.mj.mart.activities.resetpassword.ResetPasswordActivity;
+import edu.mj.mart.activities.splash.SplashActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentProfileBinding;
 import edu.mj.mart.model.Account;
@@ -59,12 +62,19 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding, Profil
                 binding.tvRole.setText(getString(R.string.title_manager));
             } else {
                 binding.tvRole.setText(getString(R.string.title_staff));
-                binding.tvOptionManager.setVisibility(View.GONE);
                 binding.layoutReport.setVisibility(View.GONE);
-                binding.layoutEmployees.setVisibility(View.GONE);
             }
         }
+        binding.layoutResetPassword.setOnClickListener(v -> {
+            startActivity(new Intent(requireActivity(), ResetPasswordActivity.class));
+        });
+        binding.cardLogOut.setOnClickListener(v -> {
+            Constants.currentAccount = null;
+            Intent intent = new Intent(requireActivity(), AuthActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
+            startActivity(intent);
+        });
         binding.layoutEmployees.setOnClickListener(v -> startActivity(new Intent(requireActivity(), EmployeeManagerActivity.class)));
     }
 

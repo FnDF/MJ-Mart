@@ -4,6 +4,7 @@ import static edu.mj.mart.utils.Constants.ACCOUNT_ACTIVE;
 import static edu.mj.mart.utils.Constants.ACCOUNT_AVATAR;
 import static edu.mj.mart.utils.Constants.ACCOUNT_EMAIL;
 import static edu.mj.mart.utils.Constants.ACCOUNT_FULL_NAME;
+import static edu.mj.mart.utils.Constants.ACCOUNT_PASSWORD;
 import static edu.mj.mart.utils.Constants.ACCOUNT_PHONE;
 import static edu.mj.mart.utils.Constants.ACCOUNT_ROLE;
 
@@ -20,6 +21,7 @@ import java.util.Objects;
 
 import edu.mj.mart.base.BasePresenter;
 import edu.mj.mart.model.Account;
+import edu.mj.mart.model.Employee;
 import edu.mj.mart.utils.Constants;
 
 public class EmployeesPresenter extends BasePresenter<EmployeesView> {
@@ -37,7 +39,7 @@ public class EmployeesPresenter extends BasePresenter<EmployeesView> {
                 .addOnCompleteListener(task -> {
                     if (mView == null) return;
                     mView.hideLoading();
-                    ArrayList<Account> accounts = new ArrayList<>();
+                    ArrayList<Employee> accounts = new ArrayList<>();
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             int role = 0;
@@ -54,7 +56,8 @@ public class EmployeesPresenter extends BasePresenter<EmployeesView> {
                                 active = Objects.requireNonNull(document.getLong(ACCOUNT_ACTIVE)).intValue();
                             }
 
-                            Account account = new Account(document.getId(), role, email, phone, fullName, active, avatar);
+                            Employee account = new Employee(document.getId(), role, email, phone, fullName, active, avatar);
+                            account.setPassword(document.getString(ACCOUNT_PASSWORD));
                             accounts.add(account);
                         }
                     } else {
