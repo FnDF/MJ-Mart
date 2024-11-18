@@ -31,10 +31,12 @@ import edu.mj.mart.utils.ImageUtil;
 
 public class EditEmployeeFragment extends BaseFragment<FragmentEditEmployeeBinding, EditEmployPresenter> implements EditEmployeeView {
 
-    private Employee employee;
+    private final Employee employee;
+    private final boolean isEditMySelf;
 
-    public EditEmployeeFragment(Employee employee) {
+    public EditEmployeeFragment(Employee employee, boolean isEditMySelf) {
         this.employee = employee;
+        this.isEditMySelf = isEditMySelf;
     }
 
     private RoleBottomSheetDialog roleBottomSheetDialog;
@@ -58,9 +60,6 @@ public class EditEmployeeFragment extends BaseFragment<FragmentEditEmployeeBindi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        if (getArguments() != null) {
-//            employee = (Employee) getArguments().get("key_employee");
-//        }
         if (employee == null) {
             Toast.makeText(requireContext(), "Lỗi hệ thống", Toast.LENGTH_SHORT).show();
             onBack();
@@ -108,10 +107,14 @@ public class EditEmployeeFragment extends BaseFragment<FragmentEditEmployeeBindi
 
         binding.ivBack.setOnClickListener(v -> onBack());
         binding.tvRole.setOnClickListener(v -> {
-            openEditRoleDialog();
+            if (!isEditMySelf) {
+                openEditRoleDialog();
+            }
         });
         binding.tvActive.setOnClickListener(v -> {
-            openEditActiveDialog();
+            if (!isEditMySelf) {
+                openEditActiveDialog();
+            }
         });
         binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,6 +176,11 @@ public class EditEmployeeFragment extends BaseFragment<FragmentEditEmployeeBindi
         } else {
             binding.tvRole.setText(getString(R.string.title_staff));
         }
+        if (isEditMySelf) {
+            binding.ivRole.setVisibility(View.GONE);
+        } else {
+            binding.ivRole.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setUIActiveValue() {
@@ -181,6 +189,11 @@ public class EditEmployeeFragment extends BaseFragment<FragmentEditEmployeeBindi
             binding.tvActive.setText(getString(R.string.title_active));
         } else {
             binding.tvActive.setText(getString(R.string.title_deactivate));
+        }
+        if (isEditMySelf) {
+            binding.ivActive.setVisibility(View.GONE);
+        } else {
+            binding.ivActive.setVisibility(View.VISIBLE);
         }
     }
 

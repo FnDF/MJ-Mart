@@ -32,7 +32,7 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
             if (getIntent().hasExtra("is_start_edit_current_account")
                     && getIntent().getBooleanExtra("is_start_edit_current_account", false)) {
                 if (Constants.convertFromCurrentAccount() != null) {
-                    onNavigationEdit(Objects.requireNonNull(Constants.convertFromCurrentAccount()), false);
+                    onNavigationEdit(Objects.requireNonNull(Constants.convertFromCurrentAccount()), false, true);
                     return;
                 }
             }
@@ -59,6 +59,9 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
 
     public void reloadData(Employee employee) {
         if (employeesFragment != null) {
+            if (Objects.equals(employee.getId(), Constants.currentAccount.getId())) {
+                Constants.updateCurrentAccount(employee);
+            }
             employeesFragment.reloadData();
         } else {
             Constants.updateCurrentAccount(employee);
@@ -73,16 +76,12 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
                 .commit();
     }
 
-    public void onNavigationEdit(Employee employee, boolean isAddToBackStack) {
+    public void onNavigationEdit(Employee employee, boolean isAddToBackStack, boolean isEditMySelf) {
+        EditEmployeeFragment fragment = new EditEmployeeFragment(employee.copy(), isEditMySelf);
         if (isAddToBackStack) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(binding.subContainer.getId(), new EditEmployeeFragment(employee.copy()))
-                    .addToBackStack("edit")
-                    .commit();
+            getSupportFragmentManager().beginTransaction().add(binding.subContainer.getId(), fragment).addToBackStack("edit").commit();
         } else {
-            getSupportFragmentManager().beginTransaction()
-                    .add(binding.subContainer.getId(), new EditEmployeeFragment(employee.copy()))
-                    .commit();
+            getSupportFragmentManager().beginTransaction().add(binding.subContainer.getId(), fragment).commit();
         }
     }
 }
