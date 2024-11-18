@@ -219,6 +219,7 @@
                 tools:text="Nhân viên" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivRole"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
@@ -258,6 +259,7 @@
                 tools:text="Hoạt động" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivActive"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
