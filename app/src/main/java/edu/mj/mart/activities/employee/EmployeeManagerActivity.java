@@ -5,6 +5,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import java.util.Objects;
+
 import edu.mj.mart.activities.employee.create.CreateEmployeeFragment;
 import edu.mj.mart.activities.employee.edit.EditEmployeeFragment;
 import edu.mj.mart.activities.employee.list.EmployeesFragment;
@@ -30,7 +32,7 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
             if (getIntent().hasExtra("is_start_edit_current_account")
                     && getIntent().getBooleanExtra("is_start_edit_current_account", false)) {
                 if (Constants.convertFromCurrentAccount() != null) {
-                    onNavigationEdit(Constants.convertFromCurrentAccount());
+                    onNavigationEdit(Objects.requireNonNull(Constants.convertFromCurrentAccount()), false);
                     return;
                 }
             }
@@ -71,10 +73,16 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
                 .commit();
     }
 
-    public void onNavigationEdit(Employee employee) {
-        getSupportFragmentManager().beginTransaction()
-                .add(binding.subContainer.getId(), new EditEmployeeFragment(employee.copy()))
-                .addToBackStack("edit")
-                .commit();
+    public void onNavigationEdit(Employee employee, boolean isAddToBackStack) {
+        if (isAddToBackStack) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(binding.subContainer.getId(), new EditEmployeeFragment(employee.copy()))
+                    .addToBackStack("edit")
+                    .commit();
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .add(binding.subContainer.getId(), new EditEmployeeFragment(employee.copy()))
+                    .commit();
+        }
     }
 }

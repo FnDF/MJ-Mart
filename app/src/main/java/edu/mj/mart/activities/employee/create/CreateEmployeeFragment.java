@@ -18,6 +18,7 @@ import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentCreateEmployeeBinding;
 import edu.mj.mart.model.Employee;
 import edu.mj.mart.utils.AESEncryption;
+import edu.mj.mart.utils.Constants;
 import edu.mj.mart.utils.DeviceUtils;
 
 public class CreateEmployeeFragment extends BaseFragment<FragmentCreateEmployeeBinding, CreateEmployeePresenter>
@@ -152,7 +153,7 @@ public class CreateEmployeeFragment extends BaseFragment<FragmentCreateEmployeeB
     @Override
     public void onCreateEmployeeSuccessfully() {
         Toast.makeText(requireContext(), "Thêm nhân viên thành công", Toast.LENGTH_SHORT).show();
-        ((EmployeeManagerActivity) requireActivity()).reloadData();
+        ((EmployeeManagerActivity) requireActivity()).reloadData(Constants.convertFromCurrentAccount());
         requireActivity().getOnBackPressedDispatcher().onBackPressed();
     }
 

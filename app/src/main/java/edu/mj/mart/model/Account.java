@@ -133,6 +133,10 @@ public class Account implements Serializable {
         this.avatar = avatar;
     }
 
+    public Employee convertEmployee() {
+        return new Employee(getId(), getRole(), getEmail(), getPassword(), getPhone(), getFullName(), getActive(), getAvatar());
+    }
+
     public HashMap<String, Object> convertToHashMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(ACCOUNT_ROLE, role);
