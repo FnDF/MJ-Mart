@@ -29,6 +29,11 @@
         <activity
             android:name=".activities.resetpassword.ResetPasswordActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activities.industry.CommodityIndustryActivity"
+            android:exported="false" />
+
         <activity
             android:name=".activities.splash.SplashActivity"
             android:exported="true">
