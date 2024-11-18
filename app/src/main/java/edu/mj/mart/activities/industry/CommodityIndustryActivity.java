@@ -124,7 +124,7 @@ public class CommodityIndustryActivity extends BaseActivity<ActivityCommodityInd
             cisFilter.addAll(cis);
         } else {
             for (CI ci : cis) {
-                if (ci.getName().contains(keySearch)) {
+                if (ci.getName().toLowerCase().contains(keySearch.toLowerCase())) {
                     cisFilter.add(ci);
                 }
             }

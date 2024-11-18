@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import edu.mj.mart.activities.industry.CommodityIndustryActivity;
+import edu.mj.mart.activities.supplier.SupplierActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentProductBinding;
 
@@ -30,12 +31,8 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding, Produc
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.layoutCommodityIndustry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(requireActivity(), CommodityIndustryActivity.class));
-            }
-        });
+        binding.layoutCommodityIndustry.setOnClickListener(view1 -> startActivity(new Intent(requireActivity(), CommodityIndustryActivity.class)));
+        binding.layoutSupplier.setOnClickListener(view1 -> startActivity(new Intent(requireActivity(), SupplierActivity.class)));
     }
 
     @Override

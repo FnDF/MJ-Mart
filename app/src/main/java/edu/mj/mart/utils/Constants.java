@@ -26,6 +26,7 @@ public class Constants {
     public static final String DB_COLLECTION_KEY_PASSWORD = "password";
 
     public static final String DB_COLLECTION_CI = "commodity_industry";
+    public static final String DB_COLLECTION_SUPPLIER = "supplier";
 
     // region -> Account
 
