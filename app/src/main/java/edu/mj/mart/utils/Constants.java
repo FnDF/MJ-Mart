@@ -45,7 +45,7 @@ public class Constants {
 
     public static Employee convertFromCurrentAccount() {
         if (currentAccount == null) return null;
-        return (Employee) currentAccount;
+        return currentAccount.convertEmployee();
     }
 
     // endregion

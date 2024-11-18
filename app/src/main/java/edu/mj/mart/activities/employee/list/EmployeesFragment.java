@@ -55,7 +55,7 @@ public class EmployeesFragment extends BaseFragment<FragmentEmployeesBinding, Em
 
         adapter = new EmployeeAdapter(new ArrayList<>(), item -> {
             if (currentAccount != null && currentAccount.getRole() == MANAGER.value) {
-                ((EmployeeManagerActivity) requireActivity()).onNavigationEdit(item);
+                ((EmployeeManagerActivity) requireActivity()).onNavigationEdit(item, true);
             }
         });
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
