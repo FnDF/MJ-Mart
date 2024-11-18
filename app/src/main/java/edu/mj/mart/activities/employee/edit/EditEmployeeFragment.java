@@ -245,9 +245,9 @@ public class EditEmployeeFragment extends BaseFragment<FragmentEditEmployeeBindi
     }
 
     @Override
-    public void onUpdateSuccess() {
+    public void onUpdateSuccess(Employee employee) {
         Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-        ((EmployeeManagerActivity) requireActivity()).reloadData();
+        ((EmployeeManagerActivity) requireActivity()).reloadData(employee);
         onBack();
     }
 

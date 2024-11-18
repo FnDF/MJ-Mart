@@ -1,10 +1,14 @@
 package edu.mj.mart.utils;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.mj.mart.R;
 import edu.mj.mart.model.Account;
+import edu.mj.mart.model.Employee;
 import kotlin.Triple;
 
 public class Constants {
@@ -40,5 +44,26 @@ public class Constants {
     public static String KEY_SERIALIZABLE_ACCOUNT = "key_account";
 
     public static Account currentAccount;
+
+    public static Employee convertFromCurrentAccount() {
+        if (currentAccount == null) return null;
+        return currentAccount.convertEmployee();
+    }
+
+    // endregion
+
+    // region -> LiveData
+
+    private static MutableLiveData<Account> accountLiveData = new MutableLiveData<>();
+
+    public static LiveData<Account> getAccountLiveData() {
+        return accountLiveData;
+    }
+
+    public static void updateCurrentAccount(Account account) {
+        currentAccount = account;
+        accountLiveData.setValue(account);
+    }
+
     // endregion
 }

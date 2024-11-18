@@ -60,7 +60,6 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
 //            String email = binding.edtEmail.getText().toString().trim();
 //            String password = binding.edtPassword.getText().toString().trim();
 
-            //demo
             String email = "anhpq.soft@gmail.com";
             String password = "12345678";
 
