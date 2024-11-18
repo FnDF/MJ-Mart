@@ -57,11 +57,8 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginPrese
         });
 
         binding.btnLogin.setOnClickListener(v -> {
-//            String email = binding.edtEmail.getText().toString().trim();
-//            String password = binding.edtPassword.getText().toString().trim();
-
-            String email = "anhpq.soft@gmail.com";
-            String password = "12345678";
+            String email = binding.edtEmail.getText().toString().trim();
+            String password = binding.edtPassword.getText().toString().trim();
 
             if (email.isEmpty()) {
                 binding.tvEmailError.setText(getString(R.string.email_empty));

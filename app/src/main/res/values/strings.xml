@@ -35,4 +35,10 @@
     <string name="error">Có lỗi xảy ra!</string>
     <string name="title_active">Hoạt động</string>
     <string name="title_deactivate">Vô hiệu hoá</string>
+
+    <string name="description_ci">ID: %s</string>
+    <string name="create_ci">Thêm ngành hàng</string>
+    <string name="title_ci">Ngành hàng</string>
+    <string name="title_delete_ci">Bạn có chắc chắn muốn vô hiệu hoá Ngành hàng %s?</string>
+    <string name="edit_ci">Sửa ngành hàng</string>
 </resources>

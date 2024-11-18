@@ -1,6 +1,8 @@
 package edu.mj.mart.model;
 
-public class CI {
+import java.io.Serializable;
+
+public class CI implements Serializable {
 
     private String name;
     private String id;
