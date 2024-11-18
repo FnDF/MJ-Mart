@@ -41,28 +41,14 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomePresente
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        Constants.getAccountLiveData().observe(getViewLifecycleOwner(), account -> {
+            currentAccount = account;
+            setupAccount();
+        });
         currentAccount = Constants.currentAccount;
         if (currentAccount != null) {
-            binding.tvTitle.setText(getString(R.string.title_welcome, currentAccount.getFullName()));
-
-            if (currentAccount.getAvatar() == null || currentAccount.getAvatar().isEmpty()) {
-                binding.ivAvatar.setImageResource(R.drawable.icon_profile_default);
-            } else {
-                StringBuilder ima = new StringBuilder();
-                for (String s : currentAccount.getAvatar()) {
-                    ima.append(s);
-                }
-                if (ima.toString().isEmpty()) {
-                    binding.ivAvatar.setImageResource(R.drawable.icon_profile_default);
-                } else {
-                    binding.ivAvatar.setImageBitmap(ImageUtil.decode(ima.toString()));
-                }
-            }
-
+            setupAccount();
             if (currentAccount.getRole() == STAFF.value) {
-//                binding.ivOption3.setImageResource(R.drawable.ic_customer);
-//                binding.tvOption3.setText(getString(R.string.customer));
 
                 binding.tvOverview1.setText(getString(R.string.list_job));
                 binding.tvValueOverview1.setText("22");
@@ -79,6 +65,24 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomePresente
                 Toast.makeText(requireContext(), "Chức năng Thống kê đang được xây dựng", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void setupAccount() {
+        binding.tvTitle.setText(getString(R.string.title_welcome, currentAccount.getFullName()));
+
+        if (currentAccount.getAvatar() == null || currentAccount.getAvatar().isEmpty()) {
+            binding.ivAvatar.setImageResource(R.drawable.icon_profile_default);
+        } else {
+            StringBuilder ima = new StringBuilder();
+            for (String s : currentAccount.getAvatar()) {
+                ima.append(s);
+            }
+            if (ima.toString().isEmpty()) {
+                binding.ivAvatar.setImageResource(R.drawable.icon_profile_default);
+            } else {
+                binding.ivAvatar.setImageBitmap(ImageUtil.decode(ima.toString()));
+            }
+        }
     }
 
     @Override
