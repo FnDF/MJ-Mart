@@ -52,6 +52,14 @@
             app:srcCompat="@drawable/icon_profile_default" />
     </androidx.cardview.widget.CardView>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/cardViewIcon"
+        app:layout_constraintEnd_toEndOf="@id/cardViewIcon"
+        app:srcCompat="@drawable/ic_camera" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvFullName"
         android:layout_width="wrap_content"

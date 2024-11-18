@@ -23,7 +23,7 @@ public class EditEmployPresenter extends BasePresenter<EditEmployeeView> {
                 .addOnSuccessListener(aVoid -> {
                     if (mView == null) return;
                     mView.hideLoading();
-                    mView.onUpdateSuccess();
+                    mView.onUpdateSuccess(employee);
                 })
                 .addOnFailureListener(e -> {
                     if (mView == null) return;

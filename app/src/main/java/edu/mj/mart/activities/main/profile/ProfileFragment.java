@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 
 import edu.mj.mart.R;
 import edu.mj.mart.activities.auth.AuthActivity;
@@ -41,7 +42,31 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding, Profil
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Constants.getAccountLiveData().observe(getViewLifecycleOwner(), account -> {
+            currentAccount = account;
+            setupAccount();
+        });
         currentAccount = Constants.currentAccount;
+        setupAccount();
+        binding.layoutResetPassword.setOnClickListener(v -> {
+            startActivity(new Intent(requireActivity(), ResetPasswordActivity.class));
+        });
+        binding.cardLogOut.setOnClickListener(v -> {
+            Constants.currentAccount = null;
+            Intent intent = new Intent(requireActivity(), AuthActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+            startActivity(intent);
+        });
+        binding.layoutEmployees.setOnClickListener(v -> startActivity(new Intent(requireActivity(), EmployeeManagerActivity.class)));
+        binding.cardViewIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(), EmployeeManagerActivity.class);
+            intent.putExtra("is_start_edit_current_account", true);
+            startActivity(intent);
+        });
+    }
+
+    private void setupAccount() {
         if (currentAccount != null) {
             if (currentAccount.getAvatar() == null || currentAccount.getAvatar().isEmpty()) {
                 binding.ivAvatar.setImageResource(R.drawable.icon_profile_default);
@@ -65,17 +90,6 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding, Profil
                 binding.layoutReport.setVisibility(View.GONE);
             }
         }
-        binding.layoutResetPassword.setOnClickListener(v -> {
-            startActivity(new Intent(requireActivity(), ResetPasswordActivity.class));
-        });
-        binding.cardLogOut.setOnClickListener(v -> {
-            Constants.currentAccount = null;
-            Intent intent = new Intent(requireActivity(), AuthActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-            startActivity(intent);
-        });
-        binding.layoutEmployees.setOnClickListener(v -> startActivity(new Intent(requireActivity(), EmployeeManagerActivity.class)));
     }
 
     @Override

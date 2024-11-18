@@ -5,14 +5,13 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import edu.mj.mart.R;
-import edu.mj.mart.activities.auth.register.RegisterFragment;
 import edu.mj.mart.activities.employee.create.CreateEmployeeFragment;
 import edu.mj.mart.activities.employee.edit.EditEmployeeFragment;
 import edu.mj.mart.activities.employee.list.EmployeesFragment;
 import edu.mj.mart.core.BaseActivity;
 import edu.mj.mart.databinding.ActivityEmployeeManagerBinding;
 import edu.mj.mart.model.Employee;
+import edu.mj.mart.utils.Constants;
 
 public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManagerBinding> {
 
@@ -27,7 +26,19 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
     @Override
     public void setupView() {
         super.setupView();
+        if (getIntent() != null) {
+            if (getIntent().hasExtra("is_start_edit_current_account")
+                    && getIntent().getBooleanExtra("is_start_edit_current_account", false)) {
+                if (Constants.convertFromCurrentAccount() != null) {
+                    onNavigationEdit(Constants.convertFromCurrentAccount());
+                    return;
+                }
+            }
+        }
+        showEmployees();
+    }
 
+    private void showEmployees() {
         if (employeesFragment == null) {
             employeesFragment = new EmployeesFragment();
         }
@@ -44,9 +55,12 @@ public class EmployeeManagerActivity extends BaseActivity<ActivityEmployeeManage
         binding.layoutLoading.setVisibility(View.GONE);
     }
 
-    public void reloadData() {
+    public void reloadData(Employee employee) {
         if (employeesFragment != null) {
             employeesFragment.reloadData();
+        } else {
+            Constants.updateCurrentAccount(employee);
+            finish();
         }
     }
 
