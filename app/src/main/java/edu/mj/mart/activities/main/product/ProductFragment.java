@@ -1,14 +1,43 @@
 package edu.mj.mart.activities.main.product;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import edu.mj.mart.activities.industry.CommodityIndustryActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentProductBinding;
 
 public class ProductFragment extends BaseFragment<FragmentProductBinding, ProductPresenter> implements ProductView {
+
+    @NonNull
+    @Override
+    protected FragmentProductBinding createBinding(LayoutInflater inflater, ViewGroup container) {
+        return FragmentProductBinding.inflate(inflater, container, false);
+    }
+
+    @NonNull
+    @Override
+    protected ProductPresenter createPresenter() {
+        return new ProductPresenter(requireActivity(), this);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.layoutCommodityIndustry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireActivity(), CommodityIndustryActivity.class));
+            }
+        });
+    }
+
     @Override
     public void showLoading() {
 
@@ -27,17 +56,5 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding, Produc
     @Override
     public void hideKeyboard() {
 
-    }
-
-    @NonNull
-    @Override
-    protected FragmentProductBinding createBinding(LayoutInflater inflater, ViewGroup container) {
-        return FragmentProductBinding.inflate(inflater, container, false);
-    }
-
-    @NonNull
-    @Override
-    protected ProductPresenter createPresenter() {
-        return new ProductPresenter(requireActivity(), this);
     }
 }
