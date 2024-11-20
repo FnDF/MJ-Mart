@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -52,6 +55,23 @@ public class DetailProductActivity extends BaseActivity<ActivityDetailProductBin
             Intent intent = new Intent(DetailProductActivity.this, EditProductActivity.class);
             intent.putExtra("product", product);
             startActivity(intent);
+        });
+        binding.cardViewDelete.setOnClickListener(v -> {
+            if (product == null || TextUtils.isEmpty(product.getFirebaseId())) return;
+            binding.layoutLoading.setVisibility(View.VISIBLE);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection(Constants.DB_COLLECTION_PRODUCTS)
+                    .document(product.getFirebaseId())
+                    .delete()
+                    .addOnCompleteListener(task -> {
+                        binding.layoutLoading.setVisibility(View.GONE);
+                        Toast.makeText(this, "Vô hiệu hoá thành công!", Toast.LENGTH_SHORT).show();
+                        getOnBackPressedDispatcher().onBackPressed();
+                    })
+                    .addOnFailureListener(e -> {
+                        binding.layoutLoading.setVisibility(View.GONE);
+                        Toast.makeText(this, "Đã có lỗi xảy ra! Vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                    });
         });
         Constants.getCurrentProductLiveData().observe(this, product -> {
             this.product = product;

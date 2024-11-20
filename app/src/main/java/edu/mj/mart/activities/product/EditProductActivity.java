@@ -116,6 +116,7 @@ public class EditProductActivity extends CreateProductActivity {
                 .addOnSuccessListener(aVoid -> {
                     binding.layoutLoading.setVisibility(View.GONE);
                     Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                    Constants.updateCurrentProduct(product);
                     getOnBackPressedDispatcher().onBackPressed();
                 })
                 .addOnFailureListener(e -> {

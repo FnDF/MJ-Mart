@@ -88,10 +88,12 @@ public class ProductActivity extends BaseActivity<ActivityProductBinding> {
     }
 
     private void fetchData() {
+        binding.layoutLoading.setVisibility(View.VISIBLE);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(Constants.DB_COLLECTION_PRODUCTS)
                 .get()
                 .addOnCompleteListener(task -> {
+                    binding.layoutLoading.setVisibility(View.GONE);
                     if (task.getResult() == null || task.getResult().isEmpty()) {
                         binding.tvEmpty.setVisibility(View.VISIBLE);
                         binding.recyclerView.setVisibility(View.GONE);
@@ -113,6 +115,7 @@ public class ProductActivity extends BaseActivity<ActivityProductBinding> {
                     productAdapter.setDataSource(products);
                 })
                 .addOnFailureListener(e -> {
+                    binding.layoutLoading.setVisibility(View.GONE);
                     binding.tvEmpty.setVisibility(View.VISIBLE);
                     binding.recyclerView.setVisibility(View.GONE);
                 });
