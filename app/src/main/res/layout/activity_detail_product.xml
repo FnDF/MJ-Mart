@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:paddingVertical="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Chi Tiết Sản Phẩm"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"
+        app:layout_constraintStart_toEndOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewImageProduct"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#ECECEA"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="0dp"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack"
+        app:layout_constraintWidth_percent="0.34">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/avatar_default" />
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/layoutInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewImageProduct">
+
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="1"
+            android:paddingVertical="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Mã SP: díaudiuaos" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="1"
+            android:paddingVertical="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Mã SP: díaudiuaos" />
+
+        <TextView
+            android:id="@+id/tvNameCI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="1"
+            android:paddingVertical="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Mã SP: díaudiuaos" />
+
+        <TextView
+            android:id="@+id/tvPurchasePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="1"
+            android:paddingVertical="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Mã SP: díaudiuaos" />
+
+        <TextView
+            android:id="@+id/tvSellingPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="1"
+            android:paddingVertical="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Mã SP: díaudiuaos" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_light"
+            android:maxLines="1"
+            android:paddingVertical="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Mã SP: díaudiuaos" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBarcode"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+
+    <!--    -->
+    <!--    <EditText-->
+    <!--        android:id="@+id/edtIdProduct"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="44dp"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:fontFamily="@font/roboto_medium"-->
+    <!--        android:hint="Mã sản phẩm"-->
+    <!--        android:inputType="number"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/ivScanBarcode"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tvHeader" />-->
+
+    <!--    <androidx.appcompat.widget.AppCompatImageView-->
+    <!--        android:id="@+id/ivScanBarcode"-->
+    <!--        android:layout_width="44dp"-->
+    <!--        android:layout_height="44dp"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/edtIdProduct"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/edtIdProduct"-->
+    <!--        app:srcCompat="@drawable/ic_scan_barcode" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/edtNameProduct"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="44dp"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:fontFamily="@font/roboto_medium"-->
+    <!--        android:hint="Tên sản phẩm"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/edtIdProduct" />-->
+
+    <!--    <androidx.appcompat.widget.LinearLayoutCompat-->
+    <!--        android:id="@+id/layoutCI"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_marginHorizontal="23dp"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/edtNameProduct">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvCI"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:ellipsize="end"-->
+    <!--            android:fontFamily="@font/roboto_medium"-->
+    <!--            android:maxLines="1"-->
+    <!--            android:paddingStart="2dp"-->
+    <!--            android:paddingEnd="2dp"-->
+    <!--            android:singleLine="true"-->
+    <!--            android:text="Ngành hàng"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="16sp" />-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:fontFamily="@font/roboto_medium"-->
+    <!--            android:text="Chọn"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="16sp" />-->
+    <!--    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+    <!--    <View-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0.8dp"-->
+    <!--        android:background="@color/black"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/layoutCI"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/layoutCI"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/layoutCI" />-->
+
+    <!--    <androidx.appcompat.widget.LinearLayoutCompat-->
+    <!--        android:id="@+id/layoutPrice"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="44dp"-->
+    <!--        android:layout_marginHorizontal="20dp"-->
+    <!--        android:layout_marginTop="2dp"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/layoutCI">-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/edtPurchasePrice"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:fontFamily="@font/roboto_medium"-->
+    <!--            android:hint="Giá nhập"-->
+    <!--            android:inputType="number"-->
+    <!--            android:textColor="@color/black" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/edtSellingPrice"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:fontFamily="@font/roboto_medium"-->
+    <!--            android:hint="Giá bán"-->
+    <!--            android:inputType="number"-->
+    <!--            android:textColor="@color/black" />-->
+    <!--    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/edtDescription"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="44dp"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:fontFamily="@font/roboto_medium"-->
+    <!--        android:hint="Mô tả"-->
+    <!--        android:inputType="text"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/layoutPrice"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/layoutPrice"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/layoutPrice" />-->
+
+    <!--    <androidx.appcompat.widget.AppCompatTextView-->
+    <!--        android:id="@+id/btnCreate"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:background="@drawable/bg_button_v3"-->
+    <!--        android:fontFamily="@font/roboto_bold"-->
+    <!--        android:gravity="center"-->
+    <!--        android:includeFontPadding="false"-->
+    <!--        android:text="Thêm mới"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintWidth_percent="0.9" />-->
+
+    <!--   -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#7E7E7E"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.44">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:text="Sửa"
+            android:textColor="@color/white" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewCamera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#F8817C"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.44">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:text="Vô hiệu hoá"
+            android:textColor="@color/white" />
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/layoutLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1A000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/white" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
