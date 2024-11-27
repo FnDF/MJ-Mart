@@ -108,7 +108,7 @@ public class ProductActivity extends BaseActivity<ActivityProductBinding> {
                     List<Product> pros = task.getResult().toObjects(Product.class);
                     for (int i = 0; i < pros.size(); i++) {
                         Product item = pros.get(i);
-                        item.setId(task.getResult().getDocuments().get(i).getId());
+                        item.setFirebaseId(task.getResult().getDocuments().get(i).getId());
                         products.add(item);
                     }
 

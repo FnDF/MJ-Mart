@@ -104,13 +104,14 @@ public class EditProductActivity extends CreateProductActivity {
                     binding.edtDescription.getText().toString().trim(),
                     image
             );
+            product.setFirebaseId(this.product.getFirebaseId());
             updateProduct(product);
         });
     }
 
     private void updateProduct(Product product) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection(Constants.DB_COLLECTION_USERS)
+        db.collection(Constants.DB_COLLECTION_PRODUCTS)
                 .document(product.getFirebaseId())
                 .set(product)
                 .addOnSuccessListener(aVoid -> {

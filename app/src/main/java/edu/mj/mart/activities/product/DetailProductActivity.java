@@ -90,7 +90,13 @@ public class DetailProductActivity extends BaseActivity<ActivityDetailProductBin
         binding.tvPurchasePrice.setText("Giá nhập: " + product.getPurchasePrice() + " VNĐ");
         binding.tvSellingPrice.setText("Giá bán: " + product.getSellingPrice() + " VNĐ");
         binding.tvDescription.setText("Mô tả: " + product.getDescription());
-        binding.tvNameCI.setText("Ngành hàng: " + product.getCiId());
+        if (cis != null && !cis.isEmpty()) {
+            cis.forEach(item -> {
+                if (item.getId().equals(product.getCiId())) {
+                    binding.tvNameCI.setText("Ngành hàng: " + item.getName());
+                }
+            });
+        }
 
         if (!product.getImages().isEmpty()) {
             StringBuilder ima = new StringBuilder();
