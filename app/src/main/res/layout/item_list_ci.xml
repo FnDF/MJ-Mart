@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvNameCI"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_list_ci_default"
+    android:fontFamily="@font/roboto_medium"
+    android:gravity="center"
+    android:paddingVertical="14dp"
+    android:text="Sữa"
+    android:textColor="@color/black" />

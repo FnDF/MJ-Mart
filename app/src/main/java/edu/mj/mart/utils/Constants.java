@@ -9,6 +9,7 @@ import java.util.List;
 import edu.mj.mart.R;
 import edu.mj.mart.model.Account;
 import edu.mj.mart.model.Employee;
+import edu.mj.mart.model.Product;
 import kotlin.Triple;
 
 public class Constants {
@@ -27,6 +28,7 @@ public class Constants {
 
     public static final String DB_COLLECTION_CI = "commodity_industry";
     public static final String DB_COLLECTION_SUPPLIER = "supplier";
+    public static final String DB_COLLECTION_PRODUCTS = "products";
 
     // region -> Account
 
@@ -64,6 +66,16 @@ public class Constants {
     public static void updateCurrentAccount(Account account) {
         currentAccount = account;
         accountLiveData.setValue(account);
+    }
+
+    private static MutableLiveData<Product> currentProductLiveData = new MutableLiveData<>();
+
+    public static LiveData<Product> getCurrentProductLiveData() {
+        return currentProductLiveData;
+    }
+
+    public static void updateCurrentProduct(Product product) {
+        currentProductLiveData.setValue(product);
     }
 
     // endregion

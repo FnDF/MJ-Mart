@@ -56,4 +56,10 @@ dependencies {
 
 	implementation(libs.androidx.navigation.fragment)
 	implementation(libs.androidx.navigation.ui)
+
+	// Use this dependency to use the dynamically downloaded model in Google Play Services
+	implementation(libs.play.services.mlkit.barcode.scanning)
+	implementation(libs.play.services.code.scanner)
+
+	implementation(libs.zxing.core)
 }

@@ -37,6 +37,7 @@
     <string name="title_deactivate">Vô hiệu hoá</string>
 
     <string name="description_ci">ID: %s</string>
+    <string name="description_product">Mã sản phẩm: %s</string>
     <string name="description_supplier">SĐT: %s</string>
     <string name="create_ci">Thêm ngành hàng</string>
     <string name="title_ci">Ngành hàng</string>
