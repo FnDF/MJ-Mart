@@ -14,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import edu.mj.mart.R;
+import edu.mj.mart.activities.customer.CustomerActivity;
 import edu.mj.mart.activities.employee.EmployeeManagerActivity;
+import edu.mj.mart.activities.import_goods.ImportGoodsActivity;
 import edu.mj.mart.activities.main.MainActivity;
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentHomeBinding;
@@ -63,6 +65,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomePresente
                 Toast.makeText(requireContext(), "Bạn không có đủ quyền hạn cần thiết", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(requireContext(), "Chức năng Thống kê đang được xây dựng", Toast.LENGTH_SHORT).show();
+            }
+        });
+        binding.card01.setOnClickListener(v -> {
+            startActivity(new Intent(requireActivity(), ImportGoodsActivity.class));
+        });
+        binding.card06.setOnClickListener(v -> {
+            if (currentAccount == null) return;
+            if (currentAccount.getRole() == STAFF.value) {
+                Toast.makeText(requireContext(), "Bạn không có đủ quyền hạn cần thiết", Toast.LENGTH_SHORT).show();
+            } else {
+                startActivity(new Intent(requireActivity(), CustomerActivity.class));
             }
         });
     }

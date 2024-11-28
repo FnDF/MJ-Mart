@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MJMart"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.import_goods.ImportGoodsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.customer.CustomerActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
@@ -39,31 +45,24 @@
         <activity
             android:name=".activities.resetpassword.ResetPasswordActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.industry.CommodityIndustryActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.supplier.SupplierActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.product.ProductActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.product.CreateProductActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.product.DetailProductActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.product.EditProductActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.splash.SplashActivity"
             android:exported="true">

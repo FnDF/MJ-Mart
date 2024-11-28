@@ -25,10 +25,12 @@ public class Constants {
     public static final String DB_COLLECTION_USERS = "users";
     public static final String DB_COLLECTION_KEY_EMAIL = "email";
     public static final String DB_COLLECTION_KEY_PASSWORD = "password";
+    public static final String DB_COLLECTION_CUSTOMER = "customers";
 
     public static final String DB_COLLECTION_CI = "commodity_industry";
     public static final String DB_COLLECTION_SUPPLIER = "supplier";
     public static final String DB_COLLECTION_PRODUCTS = "products";
+    public static final String DB_COLLECTION_IMPORT_GOODS = "import_goods";
 
     // region -> Account
 
@@ -39,6 +41,9 @@ public class Constants {
     public static final String ACCOUNT_FULL_NAME = "full_name";
     public static final String ACCOUNT_ACTIVE = "active";
     public static final String ACCOUNT_AVATAR = "avatar";
+
+    public static final String CUSTOMER_NAME = "name";
+    public static final String CUSTOMER_PHONE = "phone";
 
     public static final String EMAIL_ADMIN_EXAMPLE = "hoanggiadai19@gmail.com";
     public static final String FULL_NAME_ADMIN_EXAMPLE = "Admin";

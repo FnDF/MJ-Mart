@@ -64,6 +64,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewCreate"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     app:cardBackgroundColor="#FFBF5D"

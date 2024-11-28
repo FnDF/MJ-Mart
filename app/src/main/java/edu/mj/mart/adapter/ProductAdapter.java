@@ -74,7 +74,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     ima.append(s);
                 }
                 if (ima.toString().isEmpty()) {
-                    binding.ivProduct.setImageResource(R.drawable.avatar_default);
+                    binding.ivProduct.setImageResource(R.drawable.logo_no_background);
                 } else {
                     binding.ivProduct.setImageBitmap(ImageUtil.decode(ima.toString()));
                 }
