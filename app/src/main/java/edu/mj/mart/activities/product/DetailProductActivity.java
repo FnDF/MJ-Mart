@@ -98,16 +98,18 @@ public class DetailProductActivity extends BaseActivity<ActivityDetailProductBin
             });
         }
 
-        if (!product.getImages().isEmpty()) {
+        if (product.getImages() != null && !product.getImages().isEmpty()) {
             StringBuilder ima = new StringBuilder();
             for (String s : product.getImages()) {
                 ima.append(s);
             }
             if (ima.toString().isEmpty()) {
-                binding.ivProduct.setImageResource(R.drawable.avatar_default);
+                binding.ivProduct.setImageResource(R.drawable.logo_no_background);
             } else {
                 binding.ivProduct.setImageBitmap(ImageUtil.decode(ima.toString()));
             }
+        } else {
+            binding.ivProduct.setImageResource(R.drawable.logo_no_background);
         }
 
         genCode();

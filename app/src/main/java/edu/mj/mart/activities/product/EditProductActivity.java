@@ -37,7 +37,7 @@ public class EditProductActivity extends CreateProductActivity {
         binding.edtSellingPrice.setText(String.valueOf(product.getSellingPrice()));
         binding.edtDescription.setText(product.getDescription());
 
-        if (!product.getImages().isEmpty()) {
+        if (product.getImages() != null & !product.getImages().isEmpty()) {
             StringBuilder ima = new StringBuilder();
             for (String s : product.getImages()) {
                 ima.append(s);

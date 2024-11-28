@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <TextView
+        android:id="@+id/tvNameProduct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:fontFamily="@font/roboto_regular"
+        android:maxLines="3"
+        android:paddingVertical="2dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="4dp"
+        android:text="Revive Nước uống thể thao 500ml"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:paddingVertical="2dp"
+        android:text="12"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvPurchasePrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:paddingVertical="2dp"
+        android:text="10.000"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:paddingVertical="2dp"
+        android:text="120.000"
+        android:textColor="@color/black" />
+
+</LinearLayout>

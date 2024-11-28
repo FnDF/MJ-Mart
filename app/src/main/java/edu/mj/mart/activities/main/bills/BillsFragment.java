@@ -1,9 +1,12 @@
 package edu.mj.mart.activities.main.bills;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import edu.mj.mart.core.BaseFragment;
 import edu.mj.mart.databinding.FragmentBillsBinding;
@@ -19,6 +22,15 @@ public class BillsFragment extends BaseFragment<FragmentBillsBinding, BillsPrese
     @Override
     protected BillsPresenter createPresenter() {
         return new BillsPresenter(requireActivity(), this);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.viewCreate.setOnClickListener(view1 -> {
+
+        });
     }
 
     @Override
